@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #f9f9f9);
+    color: #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 3rem;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    animation: fadeInSlide 1.5s ease;
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 2.5rem;
+  }
+  
+  #typing-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0ea5e9;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .header p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .upload-label {
+    display: block;
+    margin-bottom: 2rem;
+    cursor: pointer;
+  }
+  
+  .upload-box {
+    border: 2px dashed #0ea5e9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+    background-color: #f1f5f9;
+  }
+  
+  .upload-box:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .upload-box i {
+    font-size: 2.4rem;
+    color: #0ea5e9;
+  }
+  
+  .upload-box p {
+    margin-top: 0.5rem;
+    color: #333;
+  }
+  
+  .register-form input {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    background-color: #f8fafc;
+  }
+  
+  .register-form input:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    background-color: #fff;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn.primary {
+    background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn.primary:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+  
+  .social-login .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.6rem 0;
+  }
+  
+  .btn.google {
+    background: #db4437;
+    color: #fff;
+  }
+  
+  .btn.facebook {
+    background: #1877f2;
+    color: #fff;
+  }
+  
+  .btn.linkedin {
+    background: #0077b5;
+    color: #fff;
+  }
+  
+  .btn i {
+    margin-right: 8px;
+  }
+  
+  .divider {
+    text-align: center;
+    color: #888;
+    margin: 2rem 0;
+    position: relative;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 40%;
+    background-color: #ccc;
+    top: 50%;
+  }
+  
+  .divider::before { left: 0; }
+  .divider::after { right: 0; }
+  
+  .footer {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .footer a {
+    color: #0ea5e9;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animations */
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes textTyping {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  #typing-text {
+    animation: textTyping 3s steps(30) forwards;
+  }
+  

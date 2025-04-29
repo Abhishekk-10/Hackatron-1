@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlumniConnect - Alumni Student Networking & Mentorship Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#6366F1', secondary: '#818CF8', dark: { 900: '#111827', 800: '#1F2937', 700: '#374151', 600: '#4B5563' } }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+  <link rel="stylesheet" href="global.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+  <!-- Header -->
+  <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white">
+          <img src="logo.png" alt="Logo" class="w-25 h-25 object-contain" />
+        </div>
+        <span class="text-2xl font-['Pacifico'] text-white">AlumniConnect</span>
+      </div>
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#" class="text-white font-medium hover:text-primary transition-colors relative group">
+          Home
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+        </a>
+        <a href="#universities" class="text-gray-400 font-medium hover:text-primary transition-colors relative group">
+          Universities
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+        </a>
+        <a href="#mentorship" class="text-gray-400 font-medium hover:text-primary transition-colors relative group">
+          Mentorship
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+        </a>
+        <a href="#events" class="text-gray-400 font-medium hover:text-primary transition-colors relative group">
+          Events
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+        </a>
+        <a href="#forum" class="text-gray-400 font-medium hover:text-primary transition-colors relative group">
+          Forum
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+        </a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <button id="loginButton" class="text-gray-400 font-medium hover:text-primary transition-colors px-4 py-2"><a
+            href="login.html">Log in here</a></button>
+        <!-- Login Modal -->
+        <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+          <div class="bg-white rounded-lg p-8 w-full max-w-md relative animate-scaleIn">
+            <button id="closeLoginModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+              <i class="ri-close-line ri-lg"></i>
+            </button>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Log in to AlumniConnect</h2>
+
+            <form id="loginForm" class="space-y-4">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+                <input type="email" id="email" required
+                  class="w-full px-4 py-2 border border-gray-200 rounded text-gray-900 focus:outline-none focus:border-primary"
+                  placeholder="Enter your email">
+              </div>
+
+              <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input type="password" id="password" required
+                  class="w-full px-4 py-2 border border-gray-200 rounded text-gray-900 focus:outline-none focus:border-primary"
+                  placeholder="Enter your password">
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <input type="checkbox" id="remember" class="custom-checkbox">
+                  <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                </div>
+                <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+              </div>
+
+              <button type="submit"
+                class="w-full bg-primary text-white py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors">
+                Log in
+              </button>
+
+              <p class="text-center text-sm text-gray-600">
+                Don't have an account?
+                <a href="#" class="text-primary hover:underline">Sign up</a>
+              </p>
+            </form>
+          </div>
+        </div>
+        <button
+          class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-primary/50 whitespace-nowrap"><a
+            href="registration.html">Register now</a></button>
+        <button
+          class="md:hidden w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section py-16 md:py-24">
+    <div class="container mx-auto px-4 w-full">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Connect with Alumni, Navigate Your Future</h1>
+        <p class="text-xl text-gray-700 mb-8">Get personalized guidance from alumni who've successfully pursued higher
+          education in North America. Make informed decisions about your academic journey.</p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
+          <button
+            class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap flex items-center justify-center">
+            <span>I'm a Student</span>
+            <i class="ri-arrow-right-line ml-2"></i>
+          </button>
+          <button
+            class="bg-white text-primary border border-primary px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+            <span>I'm an Alumni</span>
+            <i class="ri-arrow-right-line ml-2"></i>
+          </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="stats-card p-4 rounded flex flex-col items-center">
+            <div class="text-3xl font-bold text-primary mb-1">5,200+</div>
+            <div class="text-gray-600 text-center">Alumni Network</div>
+          </div>
+          <div class="stats-card p-4 rounded flex flex-col items-center">
+            <div class="text-3xl font-bold text-primary mb-1">350+</div>
+            <div class="text-gray-600 text-center">Universities</div>
+          </div>
+          <div class="stats-card p-4 rounded flex flex-col items-center">
+            <div class="text-3xl font-bold text-primary mb-1">12,000+</div>
+            <div class="text-gray-600 text-center">Mentorship Hours</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- How It Works Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">How AlumniConnect Works</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our platform simplifies the process of connecting students
+          with alumni for valuable guidance on higher education opportunities.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+            <i class="ri-user-add-line ri-lg text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Create Your Profile</h3>
+          <p class="text-gray-600">Sign up and build your profile with academic interests, career goals, and university
+            preferences.</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+            <i class="ri-search-line ri-lg text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Find Mentors</h3>
+          <p class="text-gray-600">Search for alumni based on university, program, location, and connect with the
+            perfect mentor.</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+            <i class="ri-message-3-line ri-lg text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Get Guidance</h3>
+          <p class="text-gray-600">Schedule one-on-one sessions, join webinars, and access resources to make informed
+            decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Alumni Map Section -->
+  <section class="py-16 bg-gray-50" id="mentorship">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Find Alumni Worldwide</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Connect with alumni from your college who are now studying or
+          working across North America and beyond.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="flex flex-col md:flex-row justify-between mb-6">
+          <div class="flex space-x-2 mb-4 md:mb-0">
+            <button class="bg-primary text-white px-4 py-2 !rounded-button font-medium whitespace-nowrap">All
+              Regions</button>
+            <button
+              class="bg-white text-gray-700 border border-gray-200 px-4 py-2 !rounded-button font-medium whitespace-nowrap">North
+              America</button>
+            <button
+              class="bg-white text-gray-700 border border-gray-200 px-4 py-2 !rounded-button font-medium whitespace-nowrap">Europe</button>
+          </div>
+          <div class="relative">
+            <input type="text" placeholder="Search by university, city, or country"
+              class="pl-10 pr-4 py-2 w-full md:w-64 border border-gray-200 rounded text-sm">
+            <div class="absolute left-3 top-2.5 w-4 h-4 flex items-center justify-center text-gray-400">
+              <i class="ri-search-line"></i>
+            </div>
+          </div>
+        </div>
+        <div class="map-container h-80 md:h-96 relative rounded-lg overflow-hidden">
+          <!-- Alumni markers (sample positions) -->
+          <div class="alumni-marker" style="top: 30%; left: 25%;" title="John Davis - MIT"></div>
+          <div class="alumni-marker" style="top: 35%; left: 28%;" title="Emma Wilson - Harvard"></div>
+          <div class="alumni-marker" style="top: 32%; left: 22%;" title="Michael Chen - Stanford"></div>
+          <div class="alumni-marker" style="top: 40%; left: 30%;" title="Sarah Johnson - Columbia"></div>
+          <div class="alumni-marker" style="top: 38%; left: 75%;" title="Raj Patel - University of Tokyo"></div>
+          <div class="alumni-marker" style="top: 45%; left: 50%;" title="Anna Schmidt - University of Berlin"></div>
+          <div class="alumni-marker" style="top: 25%; left: 80%;" title="David Kim - Seoul National University"></div>
+          <div class="alumni-marker" style="top: 60%; left: 20%;" title="Maria Rodriguez - University of Toronto"></div>
+        </div>
+        <div class="mt-6 text-center">
+          <p class="text-gray-600 mb-4">5,200+ alumni across 42 countries and 350+ universities</p>
+          <button
+            class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Connect
+            with Alumni</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- University Insights Section -->
+  <section class="py-16 bg-white" id="universities">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">University Insights</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Get insider perspectives on universities from alumni who've
+          experienced them firsthand.</p>
+      </div>
+      <div class="mb-8">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+          <div class="flex space-x-2 mb-4 md:mb-0 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+            <button class="bg-primary text-white px-4 py-2 !rounded-full font-medium whitespace-nowrap">All
+              Universities</button>
+            <button class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Top
+              Ranked</button>
+            <button class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Computer
+              Science</button>
+            <button
+              class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Engineering</button>
+            <button
+              class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Business</button>
+          </div>
+          <div class="relative w-full md:w-64">
+            <input type="text" placeholder="Search universities"
+              class="pl-10 pr-4 py-2 w-full border border-gray-200 rounded text-sm">
+            <div class="absolute left-3 top-2.5 w-4 h-4 flex items-center justify-center text-gray-400">
+              <i class="ri-search-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- University Card 1 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+          <div class="h-40 bg-gray-100 relative"
+            style="background-image: url('https://readdy.ai/api/search-image?query=Stanford%20University%20campus%20with%20beautiful%20architecture%2C%20sunny%20day%2C%20showing%20iconic%20buildings%20and%20palm%20trees%2C%20professional%20photography%20with%20clear%20blue%20sky&width=400&height=200&seq=uni1&orientation=landscape'); background-size: cover; background-position: center;">
+          </div>
+          <div class="p-5">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-gray-900">Stanford University</h3>
+              <div class="flex items-center">
+                <span class="text-sm font-medium text-gray-600 mr-1">4.8</span>
+                <div class="flex text-yellow-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">Stanford, California, USA</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">Computer Science</span>
+              <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">Engineering</span>
+              <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-full">Business</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-600">42 alumni mentors</span>
+              <button class="text-primary font-medium text-sm hover:underline">View Details</button>
+            </div>
+          </div>
+        </div>
+        <!-- University Card 2 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+          <div class="h-40 bg-gray-100 relative"
+            style="background-image: url('https://readdy.ai/api/search-image?query=MIT%20campus%20with%20modern%20architecture%20and%20technology%20buildings%2C%20professional%20photography%20showing%20the%20iconic%20dome%20and%20river%2C%20clear%20sunny%20day%20with%20students%20walking%20around%20campus&width=400&height=200&seq=uni2&orientation=landscape'); background-size: cover; background-position: center;">
+          </div>
+          <div class="p-5">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-gray-900">MIT</h3>
+              <div class="flex items-center">
+                <span class="text-sm font-medium text-gray-600 mr-1">4.9</span>
+                <div class="flex text-yellow-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">Cambridge, Massachusetts, USA</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">Computer Science</span>
+              <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">Engineering</span>
+              <span class="bg-red-50 text-red-700 text-xs px-2 py-1 rounded-full">Physics</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-600">38 alumni mentors</span>
+              <button class="text-primary font-medium text-sm hover:underline">View Details</button>
+            </div>
+          </div>
+        </div>
+        <!-- University Card 3 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+          <div class="h-40 bg-gray-100 relative"
+            style="background-image: url('https://readdy.ai/api/search-image?query=University%20of%20Toronto%20campus%20with%20historic%20gothic%20architecture%2C%20beautiful%20stone%20buildings%20with%20ivy%2C%20professional%20photography%20showing%20campus%20life%20with%20students%2C%20autumn%20season%20with%20colorful%20leaves&width=400&height=200&seq=uni3&orientation=landscape'); background-size: cover; background-position: center;">
+          </div>
+          <div class="p-5">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-semibold text-gray-900">University of Toronto</h3>
+              <div class="flex items-center">
+                <span class="text-sm font-medium text-gray-600 mr-1">4.7</span>
+                <div class="flex text-yellow-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">Toronto, Ontario, Canada</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">Computer Science</span>
+              <span class="bg-yellow-50 text-yellow-700 text-xs px-2 py-1 rounded-full">Medicine</span>
+              <span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-1 rounded-full">Arts</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-600">29 alumni mentors</span>
+              <button class="text-primary font-medium text-sm hover:underline">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <button
+          class="bg-white text-primary border border-primary px-6 py-2 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+          View All Universities
+          <i class="ri-arrow-right-line ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Mentorship Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Connect with Mentors</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Get personalized guidance from alumni who've successfully
+          navigated the path you're considering.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm p-6 mb-10">
+        <div class="flex flex-col md:flex-row justify-between mb-6">
+          <div class="flex space-x-2 mb-4 md:mb-0 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+            <button class="bg-primary text-white px-4 py-2 !rounded-full font-medium whitespace-nowrap">All
+              Mentors</button>
+            <button class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Computer
+              Science</button>
+            <button
+              class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Engineering</button>
+            <button
+              class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Business</button>
+          </div>
+          <div class="relative w-full md:w-64">
+            <input type="text" placeholder="Search mentors"
+              class="pl-10 pr-4 py-2 w-full border border-gray-200 rounded text-sm">
+            <div class="absolute left-3 top-2.5 w-4 h-4 flex items-center justify-center text-gray-400">
+              <i class="ri-search-line"></i>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Mentor Card 1 -->
+          <div class="border border-gray-100 rounded-lg overflow-hidden flex flex-col">
+            <div class="p-5">
+              <div class="flex items-start mb-4">
+                <div class="w-14 h-14 rounded-full bg-gray-200 mr-4 overflow-hidden"
+                  style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20Asian%20woman%20in%20her%20late%2020s%20with%20shoulder-length%20black%20hair%2C%20wearing%20business%20casual%20attire%2C%20smiling%20confidently%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=100&height=100&seq=mentor1&orientation=squarish'); background-size: cover;">
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">Emily Zhang</h3>
+                  <p class="text-gray-600 text-sm">MS Computer Science, Stanford '22</p>
+                  <div class="flex items-center mt-1">
+                    <div class="flex text-yellow-400 text-sm">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(24 reviews)</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Software Engineer at Google. Can help with CS program applications,
+                interview prep, and career guidance.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">Machine Learning</span>
+                <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">Algorithms</span>
+                <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-full">Interview Prep</span>
+              </div>
+            </div>
+            <div class="mt-auto border-t border-gray-100 p-4 bg-gray-50 flex justify-between items-center">
+              <span class="text-sm text-gray-600">Available for 1:1 sessions</span>
+              <button
+                class="bg-primary text-white px-4 py-1.5 !rounded-button text-sm font-medium whitespace-nowrap">Connect</button>
+            </div>
+          </div>
+          <!-- Mentor Card 2 -->
+          <div class="border border-gray-100 rounded-lg overflow-hidden flex flex-col">
+            <div class="p-5">
+              <div class="flex items-start mb-4">
+                <div class="w-14 h-14 rounded-full bg-gray-200 mr-4 overflow-hidden"
+                  style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20Black%20man%20in%20his%20early%2030s%20with%20short%20hair%20and%20glasses%2C%20wearing%20a%20blue%20button-up%20shirt%2C%20smiling%20confidently%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=100&height=100&seq=mentor2&orientation=squarish'); background-size: cover;">
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">Marcus Johnson</h3>
+                  <p class="text-gray-600 text-sm">MBA, Harvard Business School '21</p>
+                  <div class="flex items-center mt-1">
+                    <div class="flex text-yellow-400 text-sm">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(18 reviews)</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Management Consultant at McKinsey. Specializes in MBA applications,
+                case interviews, and finance career paths.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">MBA Applications</span>
+                <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">Consulting</span>
+                <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-full">Finance</span>
+              </div>
+            </div>
+            <div class="mt-auto border-t border-gray-100 p-4 bg-gray-50 flex justify-between items-center">
+              <span class="text-sm text-gray-600">Available for 1:1 sessions</span>
+              <button
+                class="bg-primary text-white px-4 py-1.5 !rounded-button text-sm font-medium whitespace-nowrap">Connect</button>
+            </div>
+          </div>
+          <!-- Mentor Card 3 -->
+          <div class="border border-gray-100 rounded-lg overflow-hidden flex flex-col">
+            <div class="p-5">
+              <div class="flex items-start mb-4">
+                <div class="w-14 h-14 rounded-full bg-gray-200 mr-4 overflow-hidden"
+                  style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20Indian%20woman%20in%20her%20mid-20s%20with%20long%20dark%20hair%2C%20wearing%20professional%20attire%2C%20smiling%20warmly%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=100&height=100&seq=mentor3&orientation=squarish'); background-size: cover;">
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">Priya Sharma</h3>
+                  <p class="text-gray-600 text-sm">MS Electrical Engineering, MIT '20</p>
+                  <div class="flex items-center mt-1">
+                    <div class="flex text-yellow-400 text-sm">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-1">(31 reviews)</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Hardware Engineer at Apple. Expertise in engineering program
+                applications, research opportunities, and technical interviews.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">Electrical Engineering</span>
+                <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">Research</span>
+                <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-full">Hardware</span>
+              </div>
+            </div>
+            <div class="mt-auto border-t border-gray-100 p-4 bg-gray-50 flex justify-between items-center">
+              <span class="text-sm text-gray-600">Available for 1:1 sessions</span>
+              <button
+                class="bg-primary text-white px-4 py-1.5 !rounded-button text-sm font-medium whitespace-nowrap">Connect</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="bg-white text-primary border border-primary px-6 py-2 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+          View All Mentors
+          <i class="ri-arrow-right-line ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Events Section -->
+  <section class="py-16 bg-white" id="events">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events & Webinars</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Join live sessions with alumni and university representatives
+          to get insights and ask questions.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <!-- Event Card 1 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+          <div class="w-full md:w-1/3 h-40 md:h-auto bg-gray-100 relative"
+            style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20image%20of%20a%20webinar%20or%20online%20event%20about%20university%20applications%2C%20showing%20a%20speaker%20presenting%20slides%20with%20university%20information%2C%20professional%20lighting%2C%20clean%20background&width=300&height=300&seq=event1&orientation=portrait'); background-size: cover; background-position: center;">
+          </div>
+          <div class="p-5 w-full md:w-2/3">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                <i class="ri-calendar-line text-primary"></i>
+              </div>
+              <span class="text-sm font-medium text-gray-600">April 22, 2025 • 10:00 AM EST</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Mastering the US University Application Process</h3>
+            <p class="text-gray-600 text-sm mb-4">Learn about the key components of a successful application, common
+              mistakes to avoid, and how to make your profile stand out.</p>
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden"
+                style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20woman%20with%20blonde%20hair%20wearing%20business%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=50&height=50&seq=speaker1&orientation=squarish'); background-size: cover;">
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Dr. Jennifer Wilson</p>
+                <p class="text-xs text-gray-600">Former Admissions Officer, Yale University</p>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-600">246 registered</span>
+              <button
+                class="bg-primary text-white px-4 py-1.5 !rounded-button text-sm font-medium whitespace-nowrap">Register
+                Now</button>
+            </div>
+          </div>
+        </div>
+        <!-- Event Card 2 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+          <div class="w-full md:w-1/3 h-40 md:h-auto bg-gray-100 relative"
+            style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20image%20of%20a%20panel%20discussion%20about%20scholarships%20and%20financial%20aid%20for%20international%20students%2C%20showing%20diverse%20panelists%20at%20a%20table%20with%20microphones%2C%20professional%20lighting%2C%20university%20setting&width=300&height=300&seq=event2&orientation=portrait'); background-size: cover; background-position: center;">
+          </div>
+          <div class="p-5 w-full md:w-2/3">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                <i class="ri-calendar-line text-primary"></i>
+              </div>
+              <span class="text-sm font-medium text-gray-600">April 25, 2025 • 7:00 PM EST</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Scholarships & Financial Aid for International Students
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">Discover funding opportunities, application strategies, and tips for
+              securing financial support for your studies abroad.</p>
+            <div class="flex items-center mb-4">
+              <div class="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden"
+                style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20man%20with%20gray%20hair%20and%20glasses%20wearing%20business%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=50&height=50&seq=speaker2&orientation=squarish'); background-size: cover;">
+              </div>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Robert Chen, PhD</p>
+                <p class="text-xs text-gray-600">International Student Advisor, University of Michigan</p>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-600">189 registered</span>
+              <button
+                class="bg-primary text-white px-4 py-1.5 !rounded-button text-sm font-medium whitespace-nowrap">Register
+                Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="bg-white text-primary border border-primary px-6 py-2 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+          View All Events
+          <i class="ri-arrow-right-line ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Forum Section -->
+  <section class="py-16 bg-gray-50" id="forum">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Join the Discussion</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Ask questions, share experiences, and get advice from the
+          community on our forum.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm p-6 mb-10">
+        <div class="flex flex-col md:flex-row justify-between mb-6">
+          <div class="flex space-x-2 mb-4 md:mb-0 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+            <button class="bg-primary text-white px-4 py-2 !rounded-full font-medium whitespace-nowrap">All
+              Topics</button>
+            <button
+              class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Applications</button>
+            <button class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Visa
+              Process</button>
+            <button
+              class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Scholarships</button>
+            <button class="bg-gray-100 text-gray-700 px-4 py-2 !rounded-full font-medium whitespace-nowrap">Campus
+              Life</button>
+          </div>
+          <div class="relative w-full md:w-64">
+            <input type="text" placeholder="Search discussions"
+              class="pl-10 pr-4 py-2 w-full border border-gray-200 rounded text-sm">
+            <div class="absolute left-3 top-2.5 w-4 h-4 flex items-center justify-center text-gray-400">
+              <i class="ri-search-line"></i>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <!-- Discussion Thread 1 -->
+          <div class="border border-gray-100 rounded-lg p-4">
+            <div class="flex justify-between items-start mb-3">
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-200 mr-3 overflow-hidden"
+                  style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20man%20with%20brown%20hair%2C%20casual%20professional%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=50&height=50&seq=user1&orientation=squarish'); background-size: cover;">
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">Rahul Mehta</p>
+                  <p class="text-xs text-gray-600">Posted 2 days ago</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">Applications</span>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Tips for writing a compelling Statement of Purpose for
+              CS programs?</h3>
+            <p class="text-gray-600 text-sm mb-3">I'm applying to MS in Computer Science programs at top US
+              universities. Would appreciate advice on how to structure my SOP and what specific aspects I should
+              highlight given my background in software development.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-1">
+                    <i class="ri-message-2-line"></i>
+                  </div>
+                  <span class="text-xs text-gray-600">12 replies</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-1">
+                    <i class="ri-eye-line"></i>
+                  </div>
+                  <span class="text-xs text-gray-600">89 views</span>
+                </div>
+              </div>
+              <button class="text-primary text-sm font-medium hover:underline">View Thread</button>
+            </div>
+          </div>
+          <!-- Discussion Thread 2 -->
+          <div class="border border-gray-100 rounded-lg p-4">
+            <div class="flex justify-between items-start mb-3">
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-200 mr-3 overflow-hidden"
+                  style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20woman%20with%20curly%20hair%2C%20casual%20professional%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=50&height=50&seq=user2&orientation=squarish'); background-size: cover;">
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">Sophia Rodriguez</p>
+                  <p class="text-xs text-gray-600">Posted 4 days ago</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">Visa Process</span>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">F-1 Visa interview preparation - what to expect?</h3>
+            <p class="text-gray-600 text-sm mb-3">I have my F-1 visa interview scheduled next month for Fall 2025
+              admission. Can alumni share their experience with the interview process? What kind of questions should I
+              prepare for? Any tips to increase chances of approval?</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-1">
+                    <i class="ri-message-2-line"></i>
+                  </div>
+                  <span class="text-xs text-gray-600">24 replies</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-1">
+                    <i class="ri-eye-line"></i>
+                  </div>
+                  <span class="text-xs text-gray-600">156 views</span>
+                </div>
+              </div>
+              <button class="text-primary text-sm font-medium hover:underline">View Thread</button>
+            </div>
+          </div>
+          <!-- Discussion Thread 3 -->
+          <div class="border border-gray-100 rounded-lg p-4">
+            <div class="flex justify-between items-start mb-3">
+              <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-200 mr-3 overflow-hidden"
+                  style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20man%20with%20glasses%2C%20casual%20professional%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=50&height=50&seq=user3&orientation=squarish'); background-size: cover;">
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">David Kim</p>
+                  <p class="text-xs text-gray-600">Posted 1 week ago</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-full">Scholarships</span>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Fulbright Scholarship application timeline and tips?
+            </h3>
+            <p class="text-gray-600 text-sm mb-3">I'm planning to apply for the Fulbright Scholarship for my graduate
+              studies in the US. Would appreciate insights on the application timeline, selection criteria, and tips
+              from successful applicants or alumni who secured this scholarship.</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-1">
+                    <i class="ri-message-2-line"></i>
+                  </div>
+                  <span class="text-xs text-gray-600">18 replies</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-1">
+                    <i class="ri-eye-line"></i>
+                  </div>
+                  <span class="text-xs text-gray-600">132 views</span>
+                </div>
+              </div>
+              <button class="text-primary text-sm font-medium hover:underline">View Thread</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          class="bg-white text-primary border border-primary px-6 py-2 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+          View All Discussions
+          <i class="ri-arrow-right-line ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Study Roadmap Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Your Study Abroad Roadmap</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Follow our step-by-step guide to navigate the journey from
+          application to arrival at your dream university.</p>
+      </div>
+      <div class="relative">
+        <!-- Timeline Line -->
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2"></div>
+        <div class="space-y-12 relative">
+          <!-- Step 1 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Research & Planning</h3>
+              <p class="text-gray-600">Explore universities, programs, and funding options. Connect with alumni to
+                understand their experiences.</p>
+              <div class="mt-4 inline-block">
+                <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                  <span>University Comparison Tool</span>
+                  <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white mb-6 md:mb-0">
+              <span class="font-bold">1</span>
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <div class="flex items-center mb-3">
+                  <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                    <i class="ri-time-line text-primary text-sm"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-600">12-18 months before enrollment</span>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Research universities and programs</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Connect with alumni mentors</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Prepare for standardized tests (GRE, GMAT, etc.)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right order-1 md:order-1">
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <div class="flex items-center mb-3">
+                  <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                    <i class="ri-time-line text-primary text-sm"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-600">10-12 months before enrollment</span>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Prepare application materials</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Write Statement of Purpose and essays</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Request recommendation letters</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white mb-6 md:mb-0 order-0 md:order-2">
+              <span class="font-bold">2</span>
+            </div>
+            <div class="md:w-1/2 md:pl-12 order-2 md:order-3">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Application Preparation</h3>
+              <p class="text-gray-600">Create compelling application materials, including personal statements, essays,
+                and recommendation letters.</p>
+              <div class="mt-4 inline-block">
+                <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                  <span>SOP Review Service</span>
+                  <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Application Submission</h3>
+              <p class="text-gray-600">Submit applications to your chosen universities and track their status.</p>
+              <div class="mt-4 inline-block">
+                <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                  <span>Application Tracker</span>
+                  <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white mb-6 md:mb-0">
+              <span class="font-bold">3</span>
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <div class="flex items-center mb-3">
+                  <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                    <i class="ri-time-line text-primary text-sm"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-600">8-10 months before enrollment</span>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Submit university applications</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Pay application fees</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Track application status</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right order-1 md:order-1">
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <div class="flex items-center mb-3">
+                  <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                    <i class="ri-time-line text-primary text-sm"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-600">4-6 months before enrollment</span>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Accept admission offer</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Apply for scholarships and financial aid</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Prepare for visa application</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white mb-6 md:mb-0 order-0 md:order-2">
+              <span class="font-bold">4</span>
+            </div>
+            <div class="md:w-1/2 md:pl-12 order-2 md:order-3">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Admission & Funding</h3>
+              <p class="text-gray-600">Evaluate admission offers, secure funding, and prepare for the next steps.</p>
+              <div class="mt-4 inline-block">
+                <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                  <span>Scholarship Database</span>
+                  <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Step 5 -->
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Visa & Pre-Departure</h3>
+              <p class="text-gray-600">Apply for your student visa, arrange accommodation, and prepare for your journey.
+              </p>
+              <div class="mt-4 inline-block">
+                <button class="text-primary text-sm font-medium hover:underline flex items-center">
+                  <span>Visa Preparation Guide</span>
+                  <i class="ri-arrow-right-line ml-1"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white mb-6 md:mb-0">
+              <span class="font-bold">5</span>
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <div class="flex items-center mb-3">
+                  <div class="w-6 h-6 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-2">
+                    <i class="ri-time-line text-primary text-sm"></i>
+                  </div>
+                  <span class="text-sm font-medium text-gray-600">2-3 months before enrollment</span>
+                </div>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Attend visa interview</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Arrange accommodation</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                      <i class="ri-checkbox-circle-line"></i>
+                    </div>
+                    <span class="text-sm text-gray-600">Book flights and prepare for travel</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from students who found their path through our alumni
+          network.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+          </div>
+          <p class="text-gray-600 mb-6">"The mentorship I received through AlumniConnect was invaluable. My mentor
+            helped me navigate the complex application process for Stanford's CS program and provided insights I
+            couldn't find anywhere else. I'm now in my second semester and loving it!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20Indian%20man%20with%20short%20black%20hair%2C%20casual%20professional%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=100&height=100&seq=testimonial1&orientation=squarish'); background-size: cover;">
+            </div>
+            <div>
+              <p class="font-medium text-gray-900">Vikram Patel</p>
+              <p class="text-sm text-gray-600">MS Computer Science, Stanford University</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+          </div>
+          <p class="text-gray-600 mb-6">"I was struggling with choosing between several universities and understanding
+            the scholarship options. The alumni on this platform provided honest feedback about their experiences and
+            helped me secure a full scholarship at University of Toronto!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20woman%20with%20long%20dark%20hair%2C%20casual%20professional%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=100&height=100&seq=testimonial2&orientation=squarish'); background-size: cover;">
+            </div>
+            <div>
+              <p class="font-medium text-gray-900">Aisha Khan</p>
+              <p class="text-sm text-gray-600">MBA, University of Toronto</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+            <i class="ri-star-fill"></i>
+          </div>
+          <p class="text-gray-600 mb-6">"The visa application process seemed overwhelming until I connected with alumni
+            who had gone through it recently. Their step-by-step guidance and mock interview preparation made all the
+            difference. Now I'm studying at MIT and even mentoring others!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20man%20with%20glasses%2C%20casual%20professional%20attire%2C%20smiling%20at%20camera%2C%20neutral%20background%2C%20high%20quality%20professional%20portrait&width=100&height=100&seq=testimonial3&orientation=squarish'); background-size: cover;">
+            </div>
+            <div>
+              <p class="font-medium text-gray-900">Rajiv Sharma</p>
+              <p class="text-sm text-gray-600">MS Electrical Engineering, MIT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary bg-opacity-5">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white-900 mb-4">Ready to Start Your Journey?</h2>
+        <p class="text-lg text-white-600 mb-8">Join our community of students and alumni to get personalized guidance
+          for your higher education journey.</p>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+          <button
+            class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap flex items-center justify-center">
+            <span>Create Your Profile</span>
+            <i class="ri-arrow-right-line ml-2"></i>
+          </button>
+          <button
+            class="bg-white text-primary border border-primary px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+            <span>Browse Universities</span>
+            <i class="ri-arrow-right-line ml-2"></i>
+          </button>
+        </div>
+        <p class="text-rgb(160,160,160)-600">Already have an account? <a href="#"
+            class="text-primary font-medium hover:underline">Log in</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full text-primary">
+              <i class="ri-link-m-line ri-lg"></i>
+            </div>
+            <span class="text-2xl font-['Pacifico'] text-white">AlumniConnect</span>
+          </div>
+          <p class="text-gray-400 mb-4">Connecting students with alumni for better higher education decisions.</p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-facebook-fill text-white"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-twitter-x-fill text-white"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-linkedin-fill text-white"></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+              <i class="ri-instagram-fill text-white"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="#universities" class="text-gray-400 hover:text-white transition-colors">Universities</a></li>
+            <li><a href="#mentorship" class="text-gray-400 hover:text-white transition-colors">Mentorship</a></li>
+            <li><a href="#events" class="text-gray-400 hover:text-white transition-colors">Events</a></li>
+            <li><a href="#forum" class="text-gray-400 hover:text-white transition-colors">Forum</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Application Guide</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Visa Process</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Scholarship Database</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">University Rankings</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Career Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+                <i class="ri-mail-line"></i>
+              </div>
+              <span class="text-gray-400">support@alumniconnect.com</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+                <i class="ri-phone-line"></i>
+              </div>
+              <span class="text-gray-400">+1 (123) 456-7890</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <span class="text-gray-400">123 Education Street, Campus Area, University City</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">© 2025 AlumniConnect. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

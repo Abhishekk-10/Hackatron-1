@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AlumniConnect - Register</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 id="typing-text"></h1> <!-- This will display the dynamically typed text -->
+      <p>Connect. Learn. Grow. Join a thriving community of mentors and students who are shaping the future of education.</p>
+    </div>
+
+    <form class="register-form">
+      <label for="profile-pic" class="upload-label">
+        <input type="file" id="profile-pic" hidden />
+        <div class="upload-box">
+          <i class="ri-user-add-line"></i>
+          <p>Upload Your Profile Picture</p>
+        </div>
+      </label>
+
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="password" placeholder="Create a Password" required />
+      <input type="text" placeholder="University Name (if applicable)" />
+
+      <div class="btn-group">
+        <button type="submit" class="btn primary">Register</button>
+      </div>
+
+      <div class="divider">OR</div>
+
+      <div class="social-login">
+        <button type="button" class="btn google"><i class="ri-google-fill"></i> Sign up with Google</button>
+        <button type="button" class="btn facebook"><i class="ri-facebook-fill"></i> Sign up with Facebook</button>
+        <button type="button" class="btn linkedin"><i class="ri-linkedin-box-fill"></i> Sign up with LinkedIn</button>
+      </div>
+    </form>
+
+    <div class="footer">
+      <p>Already a member? <a href="login.html">Login here</a></p>
+    </div>
+  </div>
+
+  <script>
+    const text = "Welcome to AlumniConnect✨";
+    const typingText = document.getElementById("typing-text");
+    let index = 0;
+
+    function typeEffect() {
+      if (index < text.length) {
+        typingText.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+      }
+    }
+
+    window.onload = () => {
+      typeEffect();
+    };
+  </script>
+</body>
+</html>

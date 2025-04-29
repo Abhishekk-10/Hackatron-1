@@ -1,0 +1,158 @@
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+from { transform: translateX(-100%); }
+to { transform: translateX(0); }
+}
+@keyframes scaleIn {
+from { transform: scale(0.9); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+.animate-fadeIn {
+animation: fadeIn 0.6s ease-out forwards;
+}
+.animate-slideIn {
+animation: slideIn 0.6s ease-out forwards;
+}
+.animate-scaleIn {
+animation: scaleIn 0.6s ease-out forwards;
+}
+.animate-float {
+animation: float 3s ease-in-out infinite;
+}
+.section-animate {
+opacity: 0;
+transform: translateY(20px);
+transition: all 0.6s ease-out;
+}
+.section-animate.visible {
+opacity: 1;
+transform: translateY(0);
+}
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #1F2937;
+}
+::-webkit-scrollbar-thumb {
+background: #4B5563;
+border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #6366F1;
+}
+</style>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.8) 65%, rgba(255, 255, 255, 0.1) 100%), url('https://readdy.ai/api/search-image?query=A%20professional%20networking%20scene%20with%20diverse%20group%20of%20students%20and%20professionals%20connecting%20in%20a%20modern%20university%20campus%20environment.%20The%20image%20shows%20a%20gradient%20from%20solid%20white%20on%20the%20left%20to%20a%20transparent%20overlay%20on%20the%20right%2C%20revealing%20a%20beautiful%20campus%20with%20modern%20architecture%2C%20green%20spaces%2C%20and%20people%20engaged%20in%20mentoring%20conversations.%20The%20scene%20portrays%20knowledge%20sharing%20and%20career%20guidance%20with%20a%20bright%2C%20optimistic%20atmosphere.&width=1600&height=800&seq=hero1&orientation=landscape');
+background-size: cover;
+background-position: center right;
+}
+.stats-card {
+background-color: rgba(255, 255, 255, 0.9);
+backdrop-filter: blur(10px);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+background-color: white;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4F46E5;
+border-color: #4F46E5;
+}
+.custom-checkbox:checked::after {
+content: "";
+position: absolute;
+top: 2px;
+left: 6px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 44px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #4F46E5;
+}
+input:checked + .switch-slider:before {
+transform: translateX(20px);
+}
+.map-container {
+background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+}
+.alumni-marker {
+width: 12px;
+height: 12px;
+background-color: #4F46E5;
+border-radius: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+}
+.alumni-marker::after {
+content: '';
+position: absolute;
+width: 24px;
+height: 24px;
+background-color: rgba(79, 70, 229, 0.3);
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
