@@ -53,7 +53,6 @@ AlumniConnect is a modern, user-friendly web platform that helps students connec
 Your project follows this simple yet effective structure:
 
 ```
-
 abhishekk-10-hackatron-1/
 │
 ├── README.md
@@ -62,8 +61,6 @@ abhishekk-10-hackatron-1/
 ├── login.html
 ├── registration.css
 └── registration.html
-
-
 ````
 
 - `index.html` → Main landing page
